@@ -4,19 +4,21 @@ using namespace std;
 
 template<typename T>
 class node{
-    T value;
-    node *next;
+    public:
+        T value;
+        node *next;
     
-    node(T value){
-        this->value = value;
-    }
+        node(T value){
+            this->value = value;
+        }
 };
 
 template<typename T>
 class stack{
-    int size;
-    node<T> *top;
-    node<T> *itr;
+    private:
+        int size;
+        node<T> *top;
+        node<T> *itr;
 
     public:
         stack(){
@@ -72,5 +74,25 @@ class stack{
 int main(int argc, char const *argv[])
 {
     /* code */
+    stack<int> stk;
+    stk.push(10);
+    stk.push(20);
+    stk.push(30);
+    stk.push(40);
+    stk.push(50);
+    stk.push(60);
+    stk.push(70);
+    stk.push(80);
+    stk.push(90);
+    stk.push(15);
+    stk.push(25);
+
+    cout<<"Printing stack : "<<endl;
+
+    while(stk.iterate() != NULL){
+        cout<<stk.ptr()<<endl;
+    }
+
+    cout<<endl;
     return 0;
 }
