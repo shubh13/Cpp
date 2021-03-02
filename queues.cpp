@@ -31,8 +31,22 @@ class queue{
             this->head = new node<T>(value);
             this->tail = this->head;
         }else{
-            
+            this->tail->next = new node<T>(value);
+            this->tail->next->previous = this->tail;
+            this->tail = this->tail->next;
         }
+        this->size+=1;
+    }
+
+    node<T> dequeue(){
+        node<T> *temp = this->tail;
+
+        this->tail = this->tail->previous;
+        this->tail->next = NULL;
+
+        this->size-=1;
+
+        return temp; 
     }
 };
 
